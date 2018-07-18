@@ -12,3 +12,14 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mbsyschannel',
+        'USER': 'db_username',
+        'PASSWORD': 'db_password',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
