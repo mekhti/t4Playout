@@ -3,4 +3,6 @@ conf/secrets.py
 conf/dbSettings.py
 conf/__pycache__/*
 Playout/__pycache__/*
+Playout/migrations/*
 t4Playout/__pycache__/*
+t4Playout/__pycache__/*.*
