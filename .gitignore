@@ -6,3 +6,4 @@ Playout/__pycache__/*
 Playout/migrations/*
 t4Playout/__pycache__/*
 t4Playout/__pycache__/*.*
+.idea/*
