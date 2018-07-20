@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Playout.apps.PlayoutConfig',
+    'reset_migrations',
 ]
 
 MIDDLEWARE = [
