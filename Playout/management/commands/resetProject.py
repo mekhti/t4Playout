@@ -4,6 +4,7 @@ import os
 import glob
 from Playout.management.commands._funcs import *
 from Playout.management.commands._dbFunctions import *
+from Playout.management.commands._fsFunctions import *
 
 class Command(BaseCommand):
     help = """
@@ -21,4 +22,4 @@ class Command(BaseCommand):
         unsortedFilesList = glob.glob(searchPathString)
         print(unsortedFilesList)
 
-        print(listTables())
+        print(listTables(3))
