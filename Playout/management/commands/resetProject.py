@@ -3,10 +3,12 @@ import platform
 import os
 import glob
 from Playout.management.commands._funcs import *
-from Playout.management.commands._dropDbTables import *
+from Playout.management.commands._dbFunctions import *
 
 class Command(BaseCommand):
-    help = 'Clean all project to default state'
+    help = """
+    Clean all project to default state
+    """
 
     def handle(self, *args, **options):
         pathDelimiter = definePathDelimiter()
@@ -19,4 +21,4 @@ class Command(BaseCommand):
         unsortedFilesList = glob.glob(searchPathString)
         print(unsortedFilesList)
 
-        print(dropAllTables())
+        print(listTables())
