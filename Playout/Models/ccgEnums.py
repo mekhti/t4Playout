@@ -222,3 +222,27 @@ class FFMPEGOutputType():
         (FILE, 'file'),
         (STRM, 'stream'),
     )
+
+class StreamAudioCodec():
+    AAC = 'aac'
+    MP2 = 'mp2'
+    Choices = (
+        (AAC, 'aac'),
+        (MP2, 'mp2'),
+    )
+
+class StreamVideoCodec():
+    H264 = 'libx264'
+    MPG2 = 'mpeg2video'
+    MJPG = 'mjpeg'
+    C264 = 'nvenc_264'
+    C265 = 'nvenc_265'
+    QSV4 = 'h264_qsv'
+    Choices = (
+        (H264, 'libx264'),
+        (MPG2, 'mpeg2video'),
+        (MJPG, 'mjpeg'),
+        (C264, 'nvenc_264'),
+        (C265, 'nvenc_265'),
+        (QSV4, 'h264_qsv'),
+    )
