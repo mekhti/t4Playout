@@ -413,9 +413,29 @@ class FFMPEGSimpleConsumer(models.Model):
         editable=False
     )
 
-    pathOrURL = models.TextField(
-        help_text='Output path or URL for FFMPEG consumer. Only UDP protocol supported as URL.',
-        max_length=255
+    outputType = models.CharField(
+        help_text='Type of FFMPEG output. Must be one of NONE, FILE or STREAM.',
+        choices=CCGEnums.FFMPEGOutputType.Choices,
+        default=CCGEnums.FFMPEGOutputType.NONE
+    )
+
+    pathToFile = models.FilePathField(
+        help_text = 'Path to file for FFMPEG simple output.'
+    )
+
+    pathToURL = models.URLField(
+        help_text = 'URL field for FFMPEG simple output. Only UDP protocol supported as URL.'
+    )
+
+    arguments = models.TextField(
+        help_text='Most ffmpeg arguments related to filtering and output codecs. Maximum '
+                  'length of commands string is 2048 symbols include spaces.',
+        max_length=2048
+    )
+
+    monostreams = models.BooleanField(
+        help_text='Is monostreams enabled.',
+        default=False
     )
 
     def __str__(self):
@@ -454,6 +474,37 @@ class FFMPEGAdvancedConsumer(models.Model):
 
     class Meta:
         db_table = 'ccgengine_ffmpeg_adv_consumer'
+
+
+
+"""--------------------------------------------------------------------------
+
+  #####                                    
+ #     # ##### #####  ######   ##   #    # 
+ #         #   #    # #       #  #  ##  ## 
+  #####    #   #    # #####  #    # # ## # 
+       #   #   #####  #      ###### #    # 
+ #     #   #   #   #  #      #    # #    # 
+  #####    #   #    # ###### #    # #    # 
+                                                              
+                                                          
+FFMPEG advanced consumer configuration for CasparCG engine channel.
+
+---------------------------------------------------------------------------"""
+
+class StreamConsumer(models.Model):
+    objID = models.UUIDField(
+        primary_key=True,
+        unique=True,
+        default=uuid4(),
+        editable=False
+    )
+
+    def __str__(self):
+        return '%s' % (self.objID)
+
+    class Meta:
+        db_table = 'ccgengine_stream_consumer'
 
 
 

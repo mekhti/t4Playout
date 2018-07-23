@@ -212,3 +212,13 @@ class ScreenStretch():
         (UNFR, 'uniform'),
         (U2FL, 'uniform_to_fill'),
     )
+
+class FFMPEGOutputType():
+    NONE = 'none'
+    FILE = 'file'
+    STRM = 'stream'
+    Choices = (
+        (NONE, 'none'),
+        (FILE, 'file'),
+        (STRM, 'stream'),
+    )
