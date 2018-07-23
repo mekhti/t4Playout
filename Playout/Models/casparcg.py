@@ -28,27 +28,33 @@ class Paths(models.Model):
     )
 
     mediaPath = models.FilePathField(
-        help_text = 'Path to media files folder located at the same machine with CasparCG engine.'
+        help_text = 'Path to media files folder located at the '
+                    'same machine with CasparCG engine.'
     )
 
     logPath = models.FilePathField(
-        help_text = 'Path to log files folder located at the same machine with CasparCG engine.'
+        help_text = 'Path to log files folder located at the '
+                    'same machine with CasparCG engine.'
     )
 
     dataPath = models.FilePathField(
-        help_text = 'Path to data files folder located at the same machine with CasparCG engine.'
+        help_text = 'Path to data files folder located at the '
+                    'same machine with CasparCG engine.'
     )
 
     templatePath = models.FilePathField(
-        help_text = 'Path to template files folder located at the same machine with CasparCG engine.'
+        help_text = 'Path to template files folder located at the '
+                    'same machine with CasparCG engine.'
     )
 
     thumbnailsPath = models.FilePathField(
-        help_text = 'Path to thumbnails files folder located at the same machine with CasparCH engine.'
+        help_text = 'Path to thumbnails files folder located at the '
+                    'same machine with CasparCH engine.'
     )
 
     fontPath = models.FilePathField(
-        help_text = 'Path to fonts files folder located at the same machine with CasparCG engine.'
+        help_text = 'Path to fonts files folder located at the '
+                    'same machine with CasparCG engine.'
     )
 
     def __str__(self):
@@ -118,11 +124,13 @@ class DecklinkConsumer(models.Model):
     )
 
     keyDevice = models.PositiveSmallIntegerField(
-        help_text = 'Decklink device id for key. Must not be the same main device id.'
+        help_text = 'Decklink device id for key. Must not be the same '
+                    'main device id.'
     )
 
     embeddedAudio = models.BooleanField(
-        help_text = 'Is needed to embedd audio to Decklink video output (SDI or HDMI output meaning).',
+        help_text = 'Is needed to embedd audio to Decklink video output '
+                    '(SDI or HDMI output meaning).',
         default = False
     )
 
@@ -135,14 +143,16 @@ class DecklinkConsumer(models.Model):
     )
 
     latency = models.CharField(
-        help_text = 'Channel latency for Decklink output. Must be one of normal, low, default',
+        help_text = 'Channel latency for Decklink output. Must be one of '
+                    'normal, low, default',
         max_length = 20,
         choices = CCGEnums.DecklinkLatency.Choices,
         default = CCGEnums.DecklinkLatency.NORM
     )
 
     keyer = models.CharField(
-        help_text = 'Keyer for Decklink output. Must be one of external, external_separate_device, internal, default.',
+        help_text = 'Keyer for Decklink output. Must be one of external, '
+                    'external_separate_device, internal, default.',
         max_length = 20,
         choices = CCGEnums.DecklinkKeyer.Choices,
         default = CCGEnums.DecklinkKeyer.EXTR
@@ -193,14 +203,16 @@ class BluefishConsumer(models.Model):
     )
 
     sdiStream = models.CharField(
-        help_text = 'Select SDI stream for Bluefish device. Must be one of a, b, c, d.',
+        help_text = 'Select SDI stream for Bluefish device. Must be one of '
+                    'a, b, c, d.',
         max_length = 5,
         choices = CCGEnums.BluefishSDIStream.Choices,
         default = CCGEnums.BluefishSDIStream.SDI_A
     )
 
     embeddedAudio = models.BooleanField(
-        help_text = 'Is needed to embedd audio to Bluefish video output (SDI or HDMI output meaning).',
+        help_text = 'Is needed to embedd audio to Bluefish video output '
+                    '(SDI or HDMI output meaning).',
         default = False
     )
 
@@ -314,14 +326,16 @@ class ScreenConsumer(models.Model):
     )
 
     aspectRatio = models.CharField(
-        help_text = 'Video output aspect ratio. Must be one of default, 4:3 or 16:9.',
+        help_text = 'Video output aspect ratio. Must be one of default, '
+                    '4:3 or 16:9.',
         max_length = 20,
         choices = CCGEnums.ScreenAspectRatio.Choices,
         default = CCGEnums.ScreenAspectRatio.DFLT
     )
 
     stretch = models.CharField(
-        help_text = 'Video output stretch. Must be one of none, fill, uniform or uniform_to_fill.',
+        help_text = 'Video output stretch. Must be one of none, fill, '
+                    'uniform or uniform_to_fill.',
         max_length = 20,
         choices = CCGEnums.ScreenStretch.Choices,
         default = CCGEnums.ScreenStretch.FILL
@@ -431,12 +445,13 @@ class FFMPEGSimpleConsumer(models.Model):
     )
 
     pathToURL = models.URLField(
-        help_text = 'URL field for FFMPEG simple output. Only UDP protocol supported as URL.'
+        help_text = 'URL field for FFMPEG simple output. Only UDP protocol '
+                    'supported as URL.'
     )
 
     arguments = models.TextField(
-        help_text = 'Most ffmpeg arguments related to filtering and output codecs. Maximum '
-                    'length of commands string is 2048 symbols include spaces.',
+        help_text = 'Most ffmpeg arguments related to filtering and output codecs. '
+                    'Maximum length of commands string is 2048 symbols include spaces.',
         max_length = 2048
     )
 
@@ -508,18 +523,18 @@ class StreamConsumer(models.Model):
     )
 
     outputType = models.CharField(
-        help_text='Type of STREAM output. Must be one of NONE, FILE or STREAM.',
+        help_text = 'Type of STREAM output. Must be one of NONE, FILE or STREAM.',
         max_length = 20,
         choices = CCGEnums.FFMPEGOutputType.Choices,
         default = CCGEnums.FFMPEGOutputType.NONE
     )
 
     pathToFile = models.FilePathField(
-        help_text='Path to file for FFMPEG simple output.'
+        help_text = 'Path to file for FFMPEG simple output.'
     )
 
     pathToURL = models.URLField(
-        help_text='URL field for STREAM output. Only UDP protocol supported as URL.'
+        help_text = 'URL field for STREAM output. Only UDP protocol supported as URL.'
     )
 
     audioCodec = models.CharField(
@@ -530,7 +545,8 @@ class StreamConsumer(models.Model):
     )
 
     videoCodec = models.CharField(
-        help_text = 'Video codec for STREAM output. Only libx264 and mpeg2video codec\'s supported.',
+        help_text = 'Video codec for STREAM output. Only libx264 and mpeg2video '
+                    'codec\'s supported.',
         max_length = 20,
         choices = CCGEnums.StreamVideoCodec.Choices,
         default = CCGEnums.StreamVideoCodec.H264
@@ -544,7 +560,8 @@ class StreamConsumer(models.Model):
     options = models.TextField(
         help_text = 'Most ffmpeg arguments related to filtering and output codecs. '
                     'FFmpeg codecs and format specific options, name=value, comma '
-                    'as delimiter. Maximum length of commands string is 2048 symbols include spaces.',
+                    'as delimiter. Maximum length of commands string is '
+                    '2048 symbols include spaces.',
         max_length = 2048
     )
 
@@ -685,7 +702,8 @@ class Configuration(models.Model):
     )
 
     lockClearPhrase = models.CharField(
-        help_text = 'Field for passphrase for lock clear function on CasparCG engine. Maximum lenth of passphrase is 8(eight).',
+        help_text = 'Field for passphrase for lock clear function on CasparCG '
+                    'engine. Maximum lenth of passphrase is 8(eight).',
         max_length = 16
     )
 
