@@ -525,8 +525,8 @@ class StreamConsumer(models.Model):
     audioCodec = models.CharField(
         help_text = 'Audio codec for STREAM output. Must be one of AAC or MP2.',
         max_length = 20,
-        choices = CCGEnums.StreamAACCodec.Choices,
-        default = CCGEnums.StreamAACCodec.AAC
+        choices = CCGEnums.StreamAudioCodec.Choices,
+        default = CCGEnums.StreamAudioCodec.AAC
     )
 
     videoCodec = models.CharField(
