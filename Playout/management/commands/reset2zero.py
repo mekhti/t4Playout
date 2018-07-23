@@ -20,6 +20,7 @@ class Command(BaseCommand):
                 logger.setLevel(logging.DEBUG)
         else:
             logger.setLevel(logging.WARNING)
+
         logger.info('Preparing clearing all migration artefacts from project folder.')
         FSFunctions.clearMigrations('Playout')
         DBFunctions.dropAllTables()
