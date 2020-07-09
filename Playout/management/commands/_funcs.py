@@ -2,12 +2,11 @@ import os
 import platform
 
 def checkOs():
-    osInfoObject = {
+    return {
         'osType': os.name,
         'systemType': platform.system(),
         'systemRelease': platform.release()
     }
-    return osInfoObject
 
 def definePathDelimiter():
     osInfoObject = checkOs()
@@ -15,4 +14,3 @@ def definePathDelimiter():
         return '\\'
     else:
         return '/'
-    pass
